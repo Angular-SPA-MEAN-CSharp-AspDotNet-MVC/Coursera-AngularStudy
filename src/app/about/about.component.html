@@ -53,29 +53,16 @@
     </md-card>
   </div>
 
-  <md-card fxFlex>
-    <md-card-header> <h2>Corporate Leadership</h2> </md-card-header>
-    <md-card-content>
-      <md-list fxFlex>
-
-        <div fxFlex="2">
-          <md-list-item *ngFor="let leader of leaders">
-            <img  md-card-avatar src="{{leader.image}}" alt="headIcon"/>
-            <p md-line></p>
-            <p md-line></p>
-            <p md-line></p>
-          </md-list-item>
-        </div>
-
-        <div fxFlex="53">
-          <md-list-item *ngFor="let leader of leaders">
-              <p md-line>{{leader.name}} {{leader.abbr}}</p>
-              <p md-line>{{leader.designation}}</p>
-              <p md-line>{{leader.description}}</p>
-          </md-list-item>
-        </div>
-      </md-list>
-    </md-card-content>
-  </md-card>
+  <div fxFlex>
+    <h2>Corporate Leadership</h2>
+    <md-list *ngFor="let leader of leaders">
+      <md-list-item>
+        <img md-list-avatar src="{{leader.image}}" alt="{{leader.name}}">
+        <h4 md-line>{{leader.name}} {{leader.abbr}}</h4>
+        <h4 md-line>{{leader.designation}}</h4>
+        <p  md-line><span>{{leader.description}}</span></p>
+      </md-list-item>
+    </md-list>
+  </div>
 
 </div>
