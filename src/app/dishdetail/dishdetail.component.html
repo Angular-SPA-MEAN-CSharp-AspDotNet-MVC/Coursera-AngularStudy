@@ -4,7 +4,7 @@
     <div fxFlex="40">
       <md-card>
         <md-card-header><h4>{{dish.name | uppercase}}</h4></md-card-header>
-        <img md-card-image src="{{dish.image}}" alt="{{dish.name}}">
+        <img md-card-image src="{{BaseURL + dish.image}}" alt="{{dish.name}}">
         <md-card-content>
           <p>{{dish.description}}</p>
         </md-card-content>
