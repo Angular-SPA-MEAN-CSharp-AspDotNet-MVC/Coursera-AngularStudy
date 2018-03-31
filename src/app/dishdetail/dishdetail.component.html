@@ -1,7 +1,7 @@
 <div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign-gt-md="space-around center" flLayoutGap="10px" fxLayoutGat.xs="0">
 
   <div fxFlex *ngIf="dish">
-    <div fxFlex="40">
+    <div fxFlex="40" [@visibility]="visibility">
       <md-card>
         <md-card-header><h4>{{dish.name | uppercase}}</h4></md-card-header>
         <img md-card-image src="{{BaseURL + dish.image}}" alt="{{dish.name}}">
@@ -23,7 +23,7 @@
       </md-card>
     </div>
 
-    <div fxFlex="40">
+    <div fxFlex="40" [@visibility]="visibility">
       <md-card fxFlex>
         <md-card-header> <h3>Comments</h3>
         </md-card-header>
