@@ -10,19 +10,12 @@ import { RestangularConfigFactory } from '../shared/restConfig';
 @Injectable()
 export class FeedbackService {
 
-
   constructor(private restangular: Restangular) {
   }
 
-  submitFeedback(fdVar: Feedback): Observable<Feedback[]> {
+  submitFeedback(fdVar: Feedback): Observable<Feedback> {
     console.log(fdVar);
     return this.restangular.all('feedback').post(fdVar);
   }
-
-
-  getSubmittedFeedback(): Observable<Feedback[]> {
-    return this.restangular.all('feedback').getList();
-  }
-
 
 }
