@@ -91,5 +91,8 @@
       <button md-button type="submit" class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">Submit</button>
     </form>
   </div>
+  <div [hidden]="!showSpin">
+    <md-spinner>Sending out feedback... Please wait.</md-spinner>
+  </div>
 
 </div>

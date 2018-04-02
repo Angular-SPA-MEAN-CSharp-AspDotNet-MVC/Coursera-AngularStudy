@@ -31,6 +31,7 @@ import { LoginComponent } from './login/login.component';
 import { baseURL } from './shared/baseurl';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 import { HighlightDirective } from './directives/highlight.directive';
+import {FeedbackService} from "./services/feedback.service";
 
 
 @NgModule({
@@ -57,7 +58,7 @@ import { HighlightDirective } from './directives/highlight.directive';
     HttpModule,
     RestangularModule.forRoot(RestangularConfigFactory)
   ],
-  providers: [ DishService, PromotionService, LeaderService,
+  providers: [ DishService, PromotionService, LeaderService, FeedbackService,
     { provide: 'BaseURL', useValue: baseURL },
     ProcessHTTPMsgService ],
   entryComponents: [
