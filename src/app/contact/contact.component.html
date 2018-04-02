@@ -94,8 +94,8 @@
   </div>
 
   <div *ngIf="isSubmitting" [@expand]>
-    <p>Submitting Form</p>
     <md-spinner></md-spinner>
+    <p>Submitting Form</p>
   </div>
 
   <div *ngIf="showSubmittedFeedback" [@expand]>
@@ -107,6 +107,11 @@
     <p>Contact You?:  {{submittedFeedback.agree}}</p>
     <p>How?:          {{submittedFeedback.contacttype}}</p>
     <p>Feedback:      {{submittedFeedback.message}}</p>
+  </div>
+
+  <div *ngIf="errMess">
+    <h3>Error</h3>
+    <h4>{{errMess}}</h4>
   </div>
 
 </div>

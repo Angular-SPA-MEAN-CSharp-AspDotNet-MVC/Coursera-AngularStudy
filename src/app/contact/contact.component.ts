@@ -27,12 +27,12 @@ export class ContactComponent implements OnInit {
   feedbackForm: FormGroup;
   feedback: Feedback;
   contactType = ContactType;
-  returnedFeedback: Feedback;
 
   submittedFeedback: Feedback;
   showFeedbackForm = true;
   isSubmitting = false;
   showSubmittedFeedback = false;
+
 
   formErrors = {
     'firstname': '',
@@ -40,6 +40,7 @@ export class ContactComponent implements OnInit {
     'telnum'   : '',
     'email'    : ''
   };
+  errMess: string;
 
   validationMessages = {
     'firstname': {
@@ -112,18 +113,20 @@ export class ContactComponent implements OnInit {
     this.showFeedbackForm = false;
     this.isSubmitting = true;
     this.feedbackService.submitFeedback(this.feedback)
-      .subscribe(feedback => {
-        // this.returnedFeedback = feedback[0];
-        this.isSubmitting = false;
-        this.showSubmittedFeedback = true;
-        this.submittedFeedback = feedback;
-        setTimeout(() => this.resetForm(), 5000);
-      });
-    //let result = this.feedbackService.getSubmittedFeedback()
-    //  .map( feedback => feedback[0]);
+      .subscribe( feedback => {
+          // this.returnedFeedback = feedback[0];
+          this.isSubmitting = false;
+          this.showSubmittedFeedback = true;
+          this.submittedFeedback = feedback;
+          setTimeout(() => this.resetForm(), 5000);
+        },
+        errmess => {
+          this.isSubmitting = false;
+          this.showSubmittedFeedback = false;
+          this.errMess = <any>errmess.message;
+        }
+      );
 
-    // this.feedbackService.getSubmittedFeedback()
-    //  .subscribe( feedback => this.feedback = feedback );
   }
 
   private resetForm() {
